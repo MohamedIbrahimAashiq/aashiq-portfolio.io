@@ -328,6 +328,12 @@ header#home {
   color: var(--accent);
 }
 
+/* ---  research --- */
+#research .card p {
+    text-align: justify;
+    line-height: 1.7;
+}
+
 /* --- Certifications --- */
 .cert-list {
   list-style: none;
