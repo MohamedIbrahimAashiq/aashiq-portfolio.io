@@ -24,6 +24,8 @@
   --max-w:       1100px;
 }
 
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -117,8 +119,8 @@ header#home {
 }
 
 .profile-photo {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 1600px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-dim);
@@ -129,6 +131,13 @@ header#home {
 .hero-text {
   flex: 1;
   min-width: 280px;
+}
+
+.card-private {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-style: italic;
+  margin-bottom: 0;
 }
 
 .hero-label {
