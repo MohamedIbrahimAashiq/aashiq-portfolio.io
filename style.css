@@ -120,9 +120,10 @@ header#home {
 
 .profile-photo {
   width: 180px;
-  height: 1600px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 15%;
   border: 3px solid var(--accent-dim);
   flex-shrink: 0;
   background: var(--bg-card);
