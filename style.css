@@ -83,14 +83,14 @@ nav {
 
 nav ul {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
 }
 
 nav ul a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -123,7 +123,6 @@ header#home {
   object-fit: cover;
   border: 3px solid var(--accent-dim);
   flex-shrink: 0;
-  /* Fallback if image missing */
   background: var(--bg-card);
 }
 
@@ -182,6 +181,9 @@ header#home {
   font-weight: 600;
   font-size: 0.9rem;
   transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-primary:hover { opacity: 0.85; }
@@ -203,17 +205,36 @@ header#home {
 .section-title {
   margin-bottom: 48px;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .section-title::after {
   content: '';
   display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
   width: 40px;
   height: 3px;
   background: var(--accent);
   border-radius: 2px;
-  margin-top: 10px;
+}
+
+.title-badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-radius: 999px;
+  padding: 3px 10px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
 }
 
 /* --- About --- */
@@ -227,6 +248,90 @@ header#home {
 .about-content p {
   color: var(--text-muted);
   font-size: 1.02rem;
+}
+
+/* --- Education --- */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+
+.edu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+
+.edu-card:hover {
+  border-color: var(--accent-dim);
+  transform: translateX(4px);
+}
+
+.edu-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--accent-dim);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.edu-body {
+  flex: 1;
+}
+
+.edu-body h3 {
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.edu-org {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.edu-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.edu-meta span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edu-gpa {
+  color: var(--accent) !important;
 }
 
 /* --- Cards (Internships & Projects) --- */
@@ -305,6 +410,14 @@ header#home {
 .skill-box h3 {
   margin-bottom: 14px;
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-icon-inline {
+  color: var(--accent);
+  font-size: 1rem;
 }
 
 .skill-box ul {
@@ -328,64 +441,143 @@ header#home {
   color: var(--accent);
 }
 
-/* --- Research Section Enhancement --- */
-#research .cards-grid {
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+/* --- Research Section --- */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 24px;
 }
 
-#research .card {
-  padding: 32px;
+.research-card {
+  padding: 28px 32px;
   position: relative;
   overflow: hidden;
 }
 
-#research .card::before {
+.research-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: var(--accent);
 }
 
-#research .card h3 {
-  font-size: 1.15rem;
+.research-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.research-card-header .card-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--accent-dim);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.research-card-header .card-tag {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.research-card h3 {
+  font-size: 1.05rem;
   line-height: 1.5;
   margin-bottom: 12px;
 }
 
-#research .card-tag {
-  color: var(--accent);
-  font-size: 0.78rem;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-#research .card p {
+.research-card p {
+  font-size: 0.92rem;
   text-align: justify;
   line-height: 1.75;
-}
-
-#research .card-org {
-  text-align: left;
   color: var(--text-muted);
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-  margin-top: 18px;
   margin-bottom: 0;
 }
 
-#research .card-icon {
-  width: 48px;
-  height: 48px;
+.research-card .card-org {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+/* --- TryHackMe Writeups --- */
+.writeup-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 720px;
+  transition: border-color 0.2s;
+}
+
+.writeup-card:hover {
+  border-color: var(--accent-dim);
+}
+
+.writeup-icon {
+  width: 52px;
+  height: 52px;
   background: var(--accent-dim);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--accent);
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
+
+.writeup-body h3 {
+  margin-bottom: 8px;
+}
+
+.writeup-body p {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  margin-bottom: 16px;
+}
+
+.writeup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.writeup-tags span {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.8rem;
+}
+
+.writeup-btn {
+  font-size: 0.88rem;
+  padding: 9px 20px;
+}
+
 /* --- Certifications --- */
 .cert-list {
   list-style: none;
@@ -413,7 +605,7 @@ header#home {
   border-color: var(--accent-dim);
 }
 
-.cert-icon { font-size: 1.1rem; }
+.cert-icon { font-size: 1.1rem; color: var(--accent); }
 
 .cert-arrow {
   margin-left: auto;
@@ -441,7 +633,10 @@ header#home {
 
 .contact-item:hover { color: var(--text); }
 
-.contact-icon { font-size: 1.2rem; }
+.contact-icon {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
 
 /* --- Footer --- */
 footer {
@@ -453,17 +648,23 @@ footer {
 }
 
 /* --- Responsive --- */
+@media (max-width: 1024px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   nav {
     padding: 0 20px;
   }
 
   nav ul {
-    gap: 16px;
+    gap: 14px;
   }
 
   nav ul a {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   header#home {
@@ -489,6 +690,21 @@ footer {
 
   section {
     padding: 60px 0;
+  }
+
+  .writeup-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .edu-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .edu-meta {
+    flex-direction: column;
+    gap: 6px;
   }
 }
 
